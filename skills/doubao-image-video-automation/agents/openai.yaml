@@ -1,0 +1,6 @@
+interface:
+  display_name: "Image2 Doubao Video"
+  short_description: "Default product pipeline for style-keyword image2 stills and Doubao videos."
+  default_prompt: "Use $doubao-image-video-automation by default when product images mention 木质板风, 快闪风格, 图生图, 图生视频, 跑一次, or 完整pipeline. Match the style document, generate product still images with image2, save them into Chinese style/pipeline desktop folders with aligned product numbers, and continue to Doubao 9:16 video when requested."
+policy:
+  allow_implicit_invocation: true

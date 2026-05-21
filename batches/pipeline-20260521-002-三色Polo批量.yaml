@@ -1,0 +1,28 @@
+batch_id: pipeline-20260521-002-三色Polo批量
+pipeline_target: image2_generated_image_to_doubao_video
+current_generated_image_engine: doubao
+next_generated_image_engine: image2
+video_engine: doubao
+style: 快闪风格
+date: 20260521
+desktop_style_dir: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格
+desktop_batch_dir: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量
+prompt_file: /Users/muqin/doubao/prompts/快闪风格-20260521.md
+style_prompt_file: /Users/muqin/doubao/prompts/快闪风格-20260521.md
+skill_dir: /Users/muqin/doubao/skills/doubao-image-video-automation
+items:
+  - id: product-001
+    artifact_dir: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品001
+    original: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品001/原商品图/product-001.jpg
+    generated_image: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品001/生成图片/product-001-generated.png
+    status: image_generated
+  - id: product-002
+    artifact_dir: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品002
+    original: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品002/原商品图/product-002.jpg
+    generated_image: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品002/生成图片/product-002-generated.png
+    status: image_generated
+  - id: product-003
+    artifact_dir: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品003
+    original: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品003/原商品图/product-003.jpg
+    generated_image: /Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量/商品003/生成图片/product-003-generated.png
+    status: image_generated

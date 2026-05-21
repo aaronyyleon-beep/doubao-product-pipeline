@@ -1,0 +1,16 @@
+batch_id: pipeline-20260521-001-经典Polo单品
+style: 木质板风
+date: 20260521
+desktop_style_dir: /Users/muqin/Desktop/doubao-product-pipeline/木质板风
+desktop_batch_dir: /Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品
+prompt_file: /Users/muqin/doubao/prompts/木质板风-20260521.md
+style_prompt_file: /Users/muqin/doubao/prompts/木质板风-20260521.md
+skill_dir: /Users/muqin/doubao/skills/doubao-image-video-automation
+items:
+  - id: product-001
+    artifact_dir: /Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品/商品001
+    original: /Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品/商品001/原商品图/product-001.jpg
+    generated_image: /Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品/商品001/生成图片/product-001-generated.png
+    generated_video: /Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品/商品001/生成视频/product-001-video.mp4
+    status: video_downloaded
+    notes: "Second video run used strengthened no-head/no-neck/no-face prompt."
