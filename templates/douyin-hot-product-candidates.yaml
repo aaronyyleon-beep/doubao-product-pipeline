@@ -1,0 +1,79 @@
+run_id: douyin-hot-products-YYYYMMDD-001
+date: YYYYMMDD
+category: 服装
+subcategory: 男装
+strategy:
+  benchmark_watchlist_target_count: 30
+  alert_sales_threshold: 50
+  monthly_sales_max: 500
+  max_creator_count_auto_pass: 500
+  featured_good: 品牌
+  trend_window: 近30天
+  excluded_trend_channels: [直播]
+  primary_trend_channel: 视频
+  required_latest_three_days: rising
+  preferred_creator_levels: [0, 1, 2]
+statuses:
+  - discovered
+  - metrics_pending
+  - metrics_enriched
+  - hard_filter_failed
+  - scored
+  - manual_review
+  - shortlisted
+  - add_to_cart
+  - selection_cart_added
+  - creative_pipeline_started
+  - creative_pipeline_completed
+  - rejected
+benchmark_accounts: []
+candidates:
+  - candidate_id: dy-YYYYMMDD-001
+    status: discovered
+    source:
+    category: 服装
+    subcategory:
+    product_name:
+    product_url:
+    product_id:
+    shop_name:
+    shop_score:
+    experience_score:
+    quality_score:
+    has_suixintui:
+    has_short_video_suixintui:
+    creator_count:
+    creator_level_mix:
+      level_0_2:
+      level_3_4:
+      level_5_7:
+    sales_tail:
+      window:
+      excluded_channels:
+      primary_channel:
+      latest_three_days:
+      classification:
+      screenshot:
+    sales_recent:
+      today:
+      yesterday:
+      seven_day:
+    benchmark_account:
+      handle:
+      douyin_id:
+      followers:
+      reason:
+    recent_video_signal:
+      latest_hot_date:
+      likes:
+    score:
+      recency:
+      sales_momentum:
+      competition:
+      creator_fit:
+      shop_quality:
+      total:
+    decision:
+    risk_flags: []
+    next_action:
+    notes:

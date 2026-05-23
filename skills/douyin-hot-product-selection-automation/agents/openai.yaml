@@ -1,0 +1,6 @@
+interface:
+  display_name: "Douyin Hot Product Selection"
+  short_description: "Automated Douyin apparel product selection using selection-square filters, short-video trend checks, and selection-cart handoff."
+  default_prompt: "Use $douyin-hot-product-selection-automation when the user mentions 抖音电商服装赛道, 爆款选品, 爆品, 选品广场, 服饰内衣, 男装, 带货达人数, 月销, 特色货品, 品牌, 销量趋势, or 加选品车. Apply the current strategy: in 选品广场 set 商品类目=服饰内衣 > 服装 > 男装, 月销500以下, 带货达人数500以下, 特色货品=品牌; open each product detail page, inspect 带货数据 > 销量趋势, ignore blue 直播 bars, prioritize green 视频 bars, require the latest three video bars to rise, then add passing products to the selection cart and record screenshots/results."
+policy:
+  allow_implicit_invocation: true
