@@ -38,9 +38,19 @@ Defaults:
 - monthly sales maximum: 500
 - creator count maximum: 500
 - featured goods: require `品牌`
-- detail-page trend rule: latest three non-live/video bars must rise
+- post-filter: require commission >= 15%
+- post-filter: remove candidates with no readable sales-curve data
+- full auto-add trend rule: latest three non-live/video bars must rise
 - trend reading: ignore blue `直播` bars; prioritize green `视频` bars
 - preferred creator levels: 0-2
+
+Login-block recovery:
+
+- If Buyin shows `用户未登陆，请重新登陆`, redirects to `douyinec.com`, or displays
+  the Douyin e-commerce landing page instead of the selection square, go to
+  `https://www.douyinec.com/`.
+- Click `达人`/`达人入驻`, then click `登录`.
+- After login/session recovery, return to `选品广场` and continue the run.
 
 ## Workflow
 
@@ -81,6 +91,7 @@ more useful and should be checked directly.
 For each product, capture:
 
 - product name, URL, ID, category, subcategory
+- commission percentage
 - shop, experience, and quality scores
 - brand/featured-good label
 - creator count
@@ -98,10 +109,15 @@ Trend capture:
 - Take a screenshot.
 - Ignore blue `直播` bars.
 - Use green `视频` bars as the primary curve.
-- Require the latest three video bars to rise.
-- Mark the candidate `add_to_cart` only if this visual trend passes.
+- Store the latest-three-bar classification.
+- Mark the candidate `add_to_cart` only in full selection mode when this visual
+  trend is rising.
 
 ### 4. Apply Hard Filters
+
+Use a two-layer strategy so the browser pass stays fast.
+
+Browser-layer filters:
 
 Reject or mark failed when:
 
@@ -109,13 +125,24 @@ Reject or mark failed when:
 - product is not brand-tagged when `特色货品=品牌` is required
 - monthly sales are above 500
 - creator count is above 500
-- latest three video bars are flat or declining after excluding blue live-stream bars
 - many level 5-7 creators are already selling it
+
+Post-automation link filters:
+
+- remove candidates with commission below 15%
+- remove candidates with no readable sales-curve data
+
+Full auto-add filters:
+
+- latest three video bars must be rising after excluding blue live-stream bars
+- remove candidates where the apparent rise comes only from blue live-stream
+  bars
 
 Mark `manual_review` when:
 
-- broad filters pass but the trend screenshot is unclear
-- channel colors or legend cannot be confidently mapped
+- broad filters pass, commission is at least 15%, and curve data is readable,
+  but the latest three video bars are mixed rather than clearly rising
+- channel colors or legend cannot be confidently mapped in the screenshot
 - latest three video bars are mixed rather than clearly rising
 
 ### 5. Score Passing Candidates

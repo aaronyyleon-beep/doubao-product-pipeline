@@ -65,7 +65,23 @@ Use these hard filters first in `选品广场`:
 
 Then open each product detail page and inspect `带货数据 > 销量趋势`.
 
-Trend rule:
+Automation-layer rule:
+
+- The browser automation should stay fast: apply page filters, collect visible
+  fields, open detail pages, capture the trend screenshot, and write the
+  product links and metrics.
+- Do not overload the click flow with every decision rule. Rules that can be
+  evaluated from captured fields should run after the browser pass.
+
+Post-filter rules:
+
+- Reject candidates with no readable sales-curve data.
+- Reject candidates with commission below 15%.
+- Keep non-rising but readable curves in the filtered link file for review by
+  default. Use a stricter `require_rising` pass only when the goal is final
+  auto-add rather than fast discovery.
+
+Trend reading:
 
 - Use `近30天` by default unless the user asks for another window.
 - Ignore the blue `直播` bars when judging trend.
@@ -73,12 +89,13 @@ Trend rule:
   the green `视频` bar.
 - Yellow `图文` and orange `橱窗` can be used as supporting signals, but they
   should not override the video trend.
-- The latest three days of the video trend must be rising.
-- Reject when the latest three video bars are flat, declining, or rising only
-  because of blue live-stream bars.
+- For automatic `加选品车`, the latest three days of the video trend must be
+  rising.
+- Reject for final auto-add when the latest three video bars are flat,
+  declining, or rising only because of blue live-stream bars.
 
-Only after the detail-page trend passes should the product be added to the
-selection cart.
+Only in full selection mode should a detail-page trend pass trigger adding the
+product to the selection cart.
 
 ## Scoring
 
@@ -99,7 +116,9 @@ total_score = recency + sales_momentum + competition + creator_fit + shop_qualit
 Recommended decisions:
 
 - `add_to_cart`: all hard filters pass and latest three non-live/video bars rise.
-- `manual_review`: list filters pass but trend is hard to classify visually.
+- `manual_review`: list filters pass but trend is hard to classify visually, or
+  the link passes commission/curve post-filters but does not pass the strict
+  rising trend rule.
 - `reject`: score < 65 or any hard filter fails.
 
 ## Candidate Statuses
@@ -133,6 +152,7 @@ subcategory: 男装/Polo
 product_name:
 product_url:
 product_id:
+commission_percent:
 shop_name:
 shop_score:
 experience_score:
@@ -180,6 +200,8 @@ Every run should produce:
    the image2 and Doubao video pipeline.
 5. A list of products added to the selection cart, with screenshots proving the
    non-live trend judgment.
+6. A full product link list and a post-filtered link list:
+   `runs/<run_id>-links.md` and `runs/<run_id>-links-filtered.md`.
 
 ## Chrome Automation
 

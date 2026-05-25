@@ -11,7 +11,7 @@ const { PNG } = require(
 );
 
 const CHROME_CLIENT =
-  "/Users/lyy/.codex/plugins/cache/openai-bundled/chrome/0.1.7/scripts/browser-client.mjs";
+  "/Users/lyy/.codex/plugins/cache/openai-bundled/chrome/latest/scripts/browser-client.mjs";
 
 const DEFAULTS = {
   workspaceDir: "/Users/lyy/influencer_marketing",
@@ -39,6 +39,11 @@ const DEFAULTS = {
     requiredLatestThreeDays: "rising",
     minGreenGroups: 7,
     riseToleranceRatio: 0.05,
+  },
+  postFilters: {
+    minCommissionPercent: 15,
+    requireReadableCurve: true,
+    requireRisingTrend: false,
   },
 };
 
@@ -88,7 +93,7 @@ export async function runDouyinSelection(options = {}) {
   return { runId, results };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (typeof process !== "undefined" && import.meta.url === `file://${process.argv[1]}`) {
   const options = parseCliArgs(process.argv.slice(2));
   if (!globalThis.nodeRepl && !globalThis.agent) {
     console.error(
@@ -167,6 +172,117 @@ async function ensureSelectionSquare(tab, config) {
     await tab.goto(config.startUrl);
   }
   await waitSettled(tab);
+  if (await isBuyinLoginBlocked(tab)) {
+    await recoverBuyinLogin(tab, config);
+    await tab.goto(config.startUrl);
+    await waitSettled(tab);
+  }
+  await enterSelectionSquareIfOnDashboard(tab, config);
+}
+
+async function enterSelectionSquareIfOnDashboard(tab, config) {
+  const url = await tab.url().catch(() => "");
+  if ((url || "").includes("/dashboard/merch-picking-library")) return;
+  if ((url || "").includes("/dashboard/waiter-selection")) {
+    await tab.goto(config.startUrl);
+    await waitSettled(tab, 3500);
+    return;
+  }
+
+  const clicked = await tab.playwright.evaluate((targetUrl) => {
+    const visible = (node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight;
+    };
+    const candidates = Array.from(document.querySelectorAll("a, button, div, span"))
+      .filter((node) => {
+        const text = (node.innerText || node.textContent || "").trim();
+        const href = node.href || node.getAttribute("href") || "";
+        return (
+          visible(node) &&
+          (href.includes("/dashboard/merch-picking-library") || text === "更多商品")
+        );
+      })
+      .sort((a, b) => {
+        const ah = a.href || a.getAttribute("href") || "";
+        const bh = b.href || b.getAttribute("href") || "";
+        if (ah.includes("/dashboard/merch-picking-library") !== bh.includes("/dashboard/merch-picking-library")) {
+          return ah.includes("/dashboard/merch-picking-library") ? -1 : 1;
+        }
+        const ar = a.getBoundingClientRect();
+        const br = b.getBoundingClientRect();
+        return ar.width * ar.height - br.width * br.height;
+      });
+    const target = candidates[0];
+    if (!target) return false;
+    if (target.href || target.getAttribute("href")) {
+      location.href = target.href || target.getAttribute("href");
+      return true;
+    }
+    target.click();
+    return true;
+  }, config.startUrl, { timeoutMs: 10000 }).catch(() => false);
+
+  if (!clicked) {
+    await tab.goto(config.startUrl);
+  }
+  await waitSettled(tab, 3500);
+}
+
+async function isBuyinLoginBlocked(tab) {
+  const url = await tab.url().catch(() => "");
+  if ((url || "").includes("douyinec.com")) return true;
+  const text = await readVisibleText(tab, 3000).catch(() => "");
+  return /用户未登陆|用户未登录|请重新登陆|请重新登录/.test(text);
+}
+
+async function recoverBuyinLogin(tab, config) {
+  await tab.goto("https://www.douyinec.com/");
+  await waitSettled(tab, 3500);
+  await clickCreatorEntry(tab);
+  await waitSettled(tab, 2500);
+  await clickText(tab, ["登录"], { exact: true, timeoutMs: 8000 });
+  await waitSettled(tab, 6000);
+}
+
+async function clickCreatorEntry(tab) {
+  const point = await tab.playwright.evaluate(() => {
+    const visible = (node) => {
+      const rect = node.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && rect.bottom > 0 && rect.top < window.innerHeight;
+    };
+    const textOf = (node) => (node.innerText || node.textContent || "").trim();
+    const candidateScopes = Array.from(document.querySelectorAll("section, div, li, a"))
+      .filter((node) => visible(node) && /达人/.test(textOf(node)))
+      .sort((a, b) => a.getBoundingClientRect().width - b.getBoundingClientRect().width);
+
+    for (const scope of candidateScopes) {
+      const targets = Array.from(scope.querySelectorAll("button, a, div, span"))
+        .filter((node) => visible(node) && /立即入驻|达人入驻|入驻/.test(textOf(node)))
+        .sort((a, b) => {
+          const ar = a.getBoundingClientRect();
+          const br = b.getBoundingClientRect();
+          return ar.width * ar.height - br.width * br.height;
+        });
+      const target = targets[0] || (/达人入驻/.test(textOf(scope)) ? scope : null);
+      if (target) {
+        const rect = target.getBoundingClientRect();
+        return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+      }
+    }
+
+    const fallback = Array.from(document.querySelectorAll("button, a, div, span"))
+      .find((node) => visible(node) && /达人入驻|立即入驻/.test(textOf(node)));
+    if (!fallback) return null;
+    const rect = fallback.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  }, undefined, { timeoutMs: 12000 }).catch(() => null);
+
+  if (point) {
+    await tab.cua.click(point);
+    return true;
+  }
+  return clickText(tab, ["达人入驻", "立即入驻", "达人"], { exact: false, timeoutMs: 8000 });
 }
 
 async function applySelectionFilters(tab, config) {
@@ -319,7 +435,7 @@ async function inspectCandidate({ browser, selectionTab, row, candidateId, scree
     risk_flags: [],
   };
 
-  const detailTab = await openProductDetail(browser, selectionTab, row);
+  const detailTab = await openProductDetail(browser, selectionTab, row, config);
   if (!detailTab) {
     result.status = "manual_review";
     result.risk_flags.push("Could not open product detail page.");
@@ -372,7 +488,7 @@ async function inspectCandidate({ browser, selectionTab, row, candidateId, scree
   return result;
 }
 
-async function openProductDetail(browser, selectionTab, row) {
+async function openProductDetail(browser, selectionTab, row, config) {
   if (row.commodity_id) {
     const detailTab = await browser.tabs.new();
     const url = productDetailUrl(row.commodity_id);
@@ -382,6 +498,9 @@ async function openProductDetail(browser, selectionTab, row) {
     const detailText = await readVisibleText(detailTab, 4000).catch(() => "");
     if ((await detailTab.url()).includes("/merch-promoting") && detailText.includes("带货数据")) {
       return detailTab;
+    }
+    if (await isBuyinLoginBlocked(detailTab)) {
+      await recoverBuyinLogin(detailTab, config);
     }
     await detailTab.close().catch(() => {});
   }
@@ -871,6 +990,7 @@ function parseProductRowLines(lines, base = {}) {
     shop_score: shopScore,
     good_rate: goodRateLine || null,
     creator_count: creatorCount,
+    commission_percent: parseCommissionPercent(lines),
     sales,
     raw_lines: lines.slice(0, 80),
   };
@@ -904,6 +1024,54 @@ function broadFilter(row, config) {
     isMenswearProduct(row.shop_name) ||
     (row.raw_lines || []).some(isMenswearProduct);
   return creatorOk && shopOk && salesOk && menswearOk;
+}
+
+function parseCommissionPercent(lines = []) {
+  const blocked = /好评|投放期|最高|到手|月销|已售/;
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = String(lines[index] || "");
+    if (blocked.test(line)) continue;
+    const nextLine = String(lines[index + 1] || "").trim();
+    const nextNextLine = String(lines[index + 2] || "").trim();
+    const inline = line.match(/(?:佣金\s*)?(\d+(?:\.\d+)?)%/);
+    if (inline && (/赚/.test(nextLine) || /佣金/.test(line))) return Number(inline[1]);
+    if (/^\d+(?:\.\d+)?$/.test(line) && nextLine === "%" && /赚/.test(nextNextLine)) {
+      return Number(line);
+    }
+  }
+  return null;
+}
+
+function applyPostFilters(results, config) {
+  return results.map((item) => {
+    const reasons = [];
+    const commission = item.commission_percent;
+    const trend = item.sales_tail || {};
+    const hasCurve =
+      Array.isArray(trend.latestHeights) ||
+      (Array.isArray(trend.greenGroups) && trend.greenGroups.length >= config.trend.minGreenGroups);
+
+    if (
+      config.postFilters.minCommissionPercent != null &&
+      (commission == null || commission < config.postFilters.minCommissionPercent)
+    ) {
+      reasons.push(`佣金 ${commission ?? "unknown"}% < ${config.postFilters.minCommissionPercent}%`);
+    }
+    if (config.postFilters.requireReadableCurve && !hasCurve) {
+      reasons.push("无可读销量曲线数据");
+    }
+    if (config.postFilters.requireRisingTrend && trend.classification !== "rising") {
+      reasons.push(`趋势 ${trend.classification || "unknown"} 不是 rising`);
+    }
+
+    return {
+      ...item,
+      post_filter: {
+        status: reasons.length ? "removed" : "kept",
+        reasons,
+      },
+    };
+  });
 }
 
 function isMenswearProduct(value) {
@@ -1010,6 +1178,7 @@ function mergeConfig(base, override) {
     ...override,
     filters: { ...base.filters, ...(override.filters || {}) },
     trend: { ...base.trend, ...(override.trend || {}) },
+    postFilters: { ...base.postFilters, ...(override.postFilters || {}) },
   };
 }
 
@@ -1034,10 +1203,17 @@ async function writeRunFiles({ runId, runDir, config, results }) {
       primary_trend_channel: config.trend.primaryChannel,
       required_latest_three_days: config.trend.requiredLatestThreeDays,
     },
-    candidates: results,
+    post_filters: config.postFilters,
+    candidates: applyPostFilters(results, config),
   };
   await fs.writeFile(yamlPath, toYaml(payload), "utf8");
   await fs.writeFile(mdPath, renderSummary(payload), "utf8");
+  await fs.writeFile(path.join(runDir, `${runId}-links.md`), renderLinks(payload), "utf8");
+  await fs.writeFile(
+    path.join(runDir, `${runId}-links-filtered.md`),
+    renderFilteredLinks(payload),
+    "utf8"
+  );
 }
 
 function renderSummary(payload) {
@@ -1062,11 +1238,75 @@ function renderSummary(payload) {
       `- ${item.product_name}`,
       `  - decision: ${item.decision}`,
       `  - status: ${item.status}`,
+      `  - commission: ${item.commission_percent ?? "unknown"}%`,
       `  - trend: ${item.sales_tail?.classification || "unknown"}`,
+      `  - post_filter: ${item.post_filter?.status || "unknown"}`,
       `  - screenshot: ${item.sales_tail?.screenshot || ""}`,
       ""
     );
   }
+  return `${lines.join("\n")}\n`;
+}
+
+function renderLinks(payload) {
+  const lines = [
+    `# ${payload.run_id} Links`,
+    "",
+    "All candidate product links from this run.",
+    "",
+  ];
+  payload.candidates.forEach((item, index) => {
+    lines.push(`${index + 1}. [${item.product_name}](${item.product_url || ""})`, "");
+  });
+  return `${lines.join("\n")}\n`;
+}
+
+function renderFilteredLinks(payload) {
+  const kept = payload.candidates.filter((item) => item.post_filter?.status === "kept");
+  const removed = payload.candidates.length - kept.length;
+  const lines = [
+    `# ${payload.run_id} Filtered Links`,
+    "",
+    "Rules applied after automation:",
+    "",
+    `- Remove candidates with commission below ${payload.post_filters.minCommissionPercent}%.`,
+    payload.post_filters.requireReadableCurve
+      ? "- Remove candidates with no readable sales-curve data."
+      : "- Keep candidates even when sales-curve data is unreadable.",
+    payload.post_filters.requireRisingTrend
+      ? "- Keep only candidates whose video trend is rising."
+      : "- Keep mixed/declining trends for review if they pass other post filters.",
+    "",
+    `Result: ${kept.length} kept, ${removed} removed from ${payload.candidates.length} candidates.`,
+    "",
+    "## Kept Links",
+    "",
+  ];
+
+  if (!kept.length) {
+    lines.push("None.", "");
+  }
+  kept.forEach((item, index) => {
+    lines.push(
+      `${index + 1}. [${item.product_name}](${item.product_url || ""})`,
+      `   - commission: ${item.commission_percent ?? "unknown"}%`,
+      `   - trend: ${item.sales_tail?.classification || "unknown"}`,
+      `   - latest video-bar heights: ${JSON.stringify(item.sales_tail?.latestHeights || [])}`,
+      ""
+    );
+  });
+
+  lines.push("## Removed", "");
+  payload.candidates
+    .filter((item) => item.post_filter?.status === "removed")
+    .forEach((item) => {
+      lines.push(
+        `- ${item.product_name}`,
+        `  - reasons: ${item.post_filter.reasons.join("; ")}`,
+        ""
+      );
+    });
+
   return `${lines.join("\n")}\n`;
 }
 
@@ -1123,6 +1363,22 @@ function parseCliArgs(args) {
       index += 1;
     } else if (arg === "--add-to-cart") {
       options.allowAddToCart = true;
+    } else if (arg === "--min-commission") {
+      options.postFilters = {
+        ...(options.postFilters || {}),
+        minCommissionPercent: Number(next),
+      };
+      index += 1;
+    } else if (arg === "--allow-no-curve") {
+      options.postFilters = {
+        ...(options.postFilters || {}),
+        requireReadableCurve: false,
+      };
+    } else if (arg === "--require-rising") {
+      options.postFilters = {
+        ...(options.postFilters || {}),
+        requireRisingTrend: true,
+      };
     } else if (arg === "--close-tabs") {
       options.keepTabsOpen = false;
     } else if (arg === "--help" || arg === "-h") {
@@ -1143,6 +1399,9 @@ Options:
   --start-url <url>   Douyin Buyin selection square URL.
   --workspace <path>  Workspace root. Default: ${DEFAULTS.workspaceDir}.
   --add-to-cart       Add passing products to the selection cart.
+  --min-commission n  Post-filter links below this commission percent. Default: 15.
+  --allow-no-curve    Keep links even when sales-curve data is unreadable.
+  --require-rising    Post-filter to rising video trend only.
   --close-tabs        Close Chrome tabs after the run.
 `);
 }

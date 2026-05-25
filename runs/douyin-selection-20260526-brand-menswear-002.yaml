@@ -1,0 +1,1181 @@
+run_id: douyin-selection-20260526-brand-menswear-002
+mode: assisted_read_only
+strategy:
+  category: 服饰内衣
+  category_path:
+    - 服装
+    - 男装
+  monthly_sales_min: 
+  monthly_sales_max: 500
+  creator_count_max: 500
+  shop_score_min: 
+  service_right: 
+  featured_good: 品牌
+  trend_window: 近30天
+  excluded_trend_channels:
+    - 直播
+  primary_trend_channel: 视频
+  required_latest_three_days: rising
+post_filters:
+  minCommissionPercent: 15
+  requireReadableCurve: true
+  requireRisingTrend: false
+candidates:
+  -
+    candidate_id: dy-20260526-001
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3817222123710185748
+    product_name: Romon/罗蒙纯棉亨利领针织短袖T恤夏季老钱风男士肌理感半袖上衣
+    raw_lines:
+      - Romon/罗蒙纯棉亨利领针织短袖T恤夏季老钱风男士肌理感半袖上衣
+      - 券
+      - 减30
+      - 运费险
+      - 现货
+      - 罗蒙Romon赫盟服饰专卖店
+      - 90分
+      - ¥
+      - 69
+      - "10%"
+      - 赚¥6.9
+      - "92.31%"
+      - 8
+      - 292
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3817222123710185748&id=3817222123710185748&only_query_params=1"
+    shop_name: ""
+    shop_score: 90
+    good_rate: "92.31%"
+    creator_count: 8
+    commission_percent: 10
+    sales: 292
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-001-Romon-罗蒙纯棉亨利领针织短袖T恤夏季老钱风男士肌理感半袖上衣-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - "佣金 10% < 15%"
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-002
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3817378849356906501
+    product_name: Poshbrain美式风格男士海鸥领翻领短袖POLO衫通勤休闲时尚百搭
+    raw_lines:
+      - Poshbrain美式风格男士海鸥领翻领短袖POLO衫通勤休闲时尚百搭
+      - 运费险
+      - 现货
+      - Poshbrain雨扬服装专卖店
+      - 86分
+      - ¥
+      - 69
+      - .9
+      - "30%"
+      - 赚¥20.9
+      - "-"
+      - 3
+      - 3
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3817378849356906501&id=3817378849356906501&only_query_params=1"
+    shop_name: ""
+    shop_score: 86
+    good_rate: "30%"
+    creator_count: 20.9
+    commission_percent: 30
+    sales: "-"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-002-Poshbrain美式风格男士海鸥领翻领短袖POLO衫通勤休闲时尚百搭-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-003
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3814079822691434573
+    product_name: 男士夏季冰丝凉感透气拉链翻领短袖POLO衫
+    raw_lines:
+      - 男士夏季冰丝凉感透气拉链翻领短袖POLO衫
+      - 流量扶持
+      - 券
+      - 100减5
+      - 运费险
+      - 山序户外严选铺子
+      - 91分
+      - ¥
+      - 124
+      - "30%"
+      - 赚¥37.2
+      - "100%"
+      - 67
+      - 323
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3814079822691434573&id=3814079822691434573&only_query_params=1"
+    shop_name: ""
+    shop_score: 91
+    good_rate: "100%"
+    creator_count: 67
+    commission_percent: 30
+    sales: 323
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-003-男士夏季冰丝凉感透气拉链翻领短袖POLO衫-trend.jpg
+      reason: Not enough screenshot video bars.
+      chart:
+        x1: 760
+        x2: 1271
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-004
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3817772163184853061
+    product_name: 夏季新款扎染短袖T恤男士时尚宽松时尚潮流烧花百搭圆领半袖 上衣
+    raw_lines:
+      - 夏季新款扎染短袖T恤男士时尚宽松时尚潮流烧花百搭圆领半袖 上衣
+      - 券
+      - 30减20
+      - 运费险
+      - 现货
+      - 不凡人生服饰
+      - 95分
+      - ¥
+      - 39
+      - .9
+      - "15%"
+      - 赚¥5.9
+      - "100%"
+      - 15
+      - 93
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3817772163184853061&id=3817772163184853061&only_query_params=1"
+    shop_name: ""
+    shop_score: 95
+    good_rate: "100%"
+    creator_count: 15
+    commission_percent: 15
+    sales: 93
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-004-夏季新款扎染短袖T恤男士时尚宽松时尚潮流烧花百搭圆领半袖-上衣-trend.jpg
+      reason: Not enough screenshot video bars.
+      chart:
+        x1: 898
+        x2: 1419
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-005
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3820422885785338200
+    product_name: 男士夏季新款亚麻圆领针织短袖T恤凉感透气休闲短袖桑蚕丝上衣
+    raw_lines:
+      - 男士夏季新款亚麻圆领针织短袖T恤凉感透气休闲短袖桑蚕丝上衣
+      - 运费险
+      - 现货
+      - 包邮
+      - 清奢先生男装
+      - 87分
+      - ¥
+      - 99
+      - "30%"
+      - 赚¥29.7
+      - "-"
+      - "-"
+      - 18
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3820422885785338200&id=3820422885785338200&only_query_params=1"
+    shop_name: ""
+    shop_score: 87
+    good_rate: "30%"
+    creator_count: 29.7
+    commission_percent: 30
+    sales: "-"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-005-男士夏季新款亚麻圆领针织短袖T恤凉感透气休闲短袖桑蚕丝上衣-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-006
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3819448252630172092
+    product_name: 日系轻奢双层珠地棉条纹翻领t恤短袖男透气凉感码五分袖261611
+    raw_lines:
+      - 日系轻奢双层珠地棉条纹翻领t恤短袖男透气凉感码五分袖261611
+      - 商家投千川
+      - 券
+      - 70减32
+      - 运费险
+      - 高冷男神潮牌服饰
+      - 80分
+      - ¥
+      - 59
+      - .8
+      - 双佣金
+      - 20
+      - "%"
+      - "投放期10%"
+      - 最高赚¥11.9
+      - "-"
+      - 7
+      - 30
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3819448252630172092&id=3819448252630172092&only_query_params=1"
+    shop_name: ""
+    shop_score: 80
+    good_rate: 
+    creator_count: 
+    commission_percent: 20
+    sales: "20 投放期10% 最高赚¥11.9 7 30"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-006-日系轻奢双层珠地棉条纹翻领t恤短袖男透气凉感码五分袖261611-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-007
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3815238426450591748
+    product_name: 夏季刺绣圆领t恤短袖男款肌理感薄款透气打底衫内搭男士半袖体恤
+    raw_lines:
+      - 夏季刺绣圆领t恤短袖男款肌理感薄款透气打底衫内搭男士半袖体恤
+      - 运费险
+      - 现货
+      - 包邮
+      - 安澜男装服饰
+      - 92分
+      - ¥
+      - 59
+      - .9
+      - "30%"
+      - 赚¥17.9
+      - "-"
+      - 47
+      - 10
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3815238426450591748&id=3815238426450591748&only_query_params=1"
+    shop_name: ""
+    shop_score: 92
+    good_rate: "30%"
+    creator_count: 17.9
+    commission_percent: 30
+    sales: "-"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-007-夏季刺绣圆领t恤短袖男款肌理感薄款透气打底衫内搭男士半袖体恤-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-008
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3815429129499705527
+    product_name: 梅紫色解构速干短袖男款夏季冰感凉感重磅正肩t恤短宽版型半截袖
+    raw_lines:
+      - 梅紫色解构速干短袖男款夏季冰感凉感重磅正肩t恤短宽版型半截袖
+      - 运费险
+      - 现货
+      - 华禧顿男装旗舰店
+      - 93分
+      - ¥
+      - 39
+      - .9
+      - "15%"
+      - 赚¥5.9
+      - "90.91%"
+      - 15
+      - 225
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3815429129499705527&id=3815429129499705527&only_query_params=1"
+    shop_name: ""
+    shop_score: 93
+    good_rate: "90.91%"
+    creator_count: 15
+    commission_percent: 15
+    sales: 225
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-008-梅紫色解构速干短袖男款夏季冰感凉感重磅正肩t恤短宽版型半截袖-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-009
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3816108427952914703
+    product_name: 马克华菲轻熟老钱风夏季短袖男垂顺纯棉挺括职场休闲百搭t恤
+    raw_lines:
+      - 马克华菲轻熟老钱风夏季短袖男垂顺纯棉挺括职场休闲百搭t恤
+      - 运费险
+      - 现货
+      - 马克华菲服装旗舰店
+      - 92分
+      - ¥
+      - 79
+      - "21%"
+      - 赚¥16.5
+      - "100%"
+      - 25
+      - 354
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3816108427952914703&id=3816108427952914703&only_query_params=1"
+    shop_name: ""
+    shop_score: 92
+    good_rate: "100%"
+    creator_count: 25
+    commission_percent: 21
+    sales: 354
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-009-马克华菲轻熟老钱风夏季短袖男垂顺纯棉挺括职场休闲百搭t恤-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-010
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3819798567359480092
+    product_name: Romon/罗蒙高级感男士短袖Polo衫夏季时尚透气T恤休闲百搭上衣潮
+    raw_lines:
+      - Romon/罗蒙高级感男士短袖Polo衫夏季时尚透气T恤休闲百搭上衣潮
+      - 商家投千川
+      - 流量扶持
+      - 券
+      - 50减10
+      - 罗蒙予绘涓专卖店
+      - 85分
+      - ¥
+      - 79
+      - 双佣金
+      - 28
+      - "%"
+      - "投放期5%"
+      - 最高赚¥22.1
+      - "85.71%"
+      - 220
+      - 339
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3819798567359480092&id=3819798567359480092&only_query_params=1"
+    shop_name: ""
+    shop_score: 85
+    good_rate: "85.71%"
+    creator_count: 220
+    commission_percent: 28
+    sales: 339
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-010-Romon-罗蒙高级感男士短袖Polo衫夏季时尚透气T恤休闲百搭上衣潮-trend.jpg
+      reason: Not enough screenshot video bars.
+      chart:
+        x1: 898
+        x2: 1425
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-011
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3819792169863086596
+    product_name: 夏季新款半拉链翻领男士短袖POLO衫商务休闲百搭上衣短袖t恤男潮T
+    raw_lines:
+      - 夏季新款半拉链翻领男士短袖POLO衫商务休闲百搭上衣短袖t恤男潮T
+      - 商家投千川
+      - 流量扶持
+      - 运费险
+      - 柯沐仟酉晴男装专卖店
+      - 91分
+      - ¥
+      - 69
+      - .9
+      - 团长
+      - 26
+      - "%"
+      - "投放期26%"
+      - 最高赚¥18.1
+      - "100%"
+      - 121
+      - 255
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3819792169863086596&id=3819792169863086596&only_query_params=1"
+    shop_name: ""
+    shop_score: 91
+    good_rate: "100%"
+    creator_count: 121
+    commission_percent: 26
+    sales: 255
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-011-夏季新款半拉链翻领男士短袖POLO衫商务休闲百搭上衣短袖t恤男潮T-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-012
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3820605898661953862
+    product_name: 【锦氨无痕】夏季新款男士短袖T恤男纯色百搭POLO衫男装半袖上衣
+    raw_lines:
+      - 【锦氨无痕】夏季新款男士短袖T恤男纯色百搭POLO衫男装半袖上衣
+      - 运费险
+      - 现货
+      - 瑞硕二店
+      - 89分
+      - ¥
+      - 29
+      - .9
+      - "25%"
+      - 赚¥7.4
+      - "100%"
+      - 91
+      - 98
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3820605898661953862&id=3820605898661953862&only_query_params=1"
+    shop_name: ""
+    shop_score: 89
+    good_rate: "100%"
+    creator_count: 91
+    commission_percent: 25
+    sales: 98
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-012-锦氨无痕-夏季新款男士短袖T恤男纯色百搭POLO衫男装半袖上衣-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-013
+    status: rejected
+    decision: reject
+    commodity_id: 3817646788735795530
+    product_name: TUCANO/啄木鳥休闲刺绣翻领polo衫男夏季修身透气百搭薄款短袖T恤
+    raw_lines:
+      - TUCANO/啄木鳥休闲刺绣翻领polo衫男夏季修身透气百搭薄款短袖T恤
+      - 券
+      - 59减40
+      - 运费险
+      - 现货
+      - 啄木鳥跃裳专卖店
+      - 92分
+      - ¥
+      - 49
+      - .9
+      - "20%"
+      - 赚¥9.9
+      - "-"
+      - 13
+      - 28
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3817646788735795530&id=3817646788735795530&only_query_params=1"
+    shop_name: ""
+    shop_score: 92
+    good_rate: "20%"
+    creator_count: 9.9
+    commission_percent: 20
+    sales: "-"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: mixed
+      classification: mixed
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-013-TUCANO-啄木鳥休闲刺绣翻领polo衫男夏季修身透气百搭薄款短袖T恤-trend.jpg
+      reason: 
+      latestHeights:
+        - 61
+        - 61
+        - 18
+      chart:
+        x1: 898
+        x2: 1425
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+        -
+          startX: 1155
+          endX: 1166
+          topY: 422
+          bottomY: 457
+          maxCount: 36
+          width: 12
+          height: 36
+          centerX: 1160.5
+        -
+          startX: 1180
+          endX: 1191
+          topY: 422
+          bottomY: 457
+          maxCount: 36
+          width: 12
+          height: 36
+          centerX: 1185.5
+        -
+          startX: 1230
+          endX: 1241
+          topY: 360
+          bottomY: 457
+          maxCount: 98
+          width: 12
+          height: 98
+          centerX: 1235.5
+        -
+          startX: 1254
+          endX: 1265
+          topY: 336
+          bottomY: 457
+          maxCount: 122
+          width: 12
+          height: 122
+          centerX: 1259.5
+        -
+          startX: 1304
+          endX: 1315
+          topY: 274
+          bottomY: 457
+          maxCount: 184
+          width: 12
+          height: 184
+          centerX: 1309.5
+        -
+          startX: 1328
+          endX: 1340
+          topY: 397
+          bottomY: 457
+          maxCount: 61
+          width: 13
+          height: 61
+          centerX: 1334
+        -
+          startX: 1378
+          endX: 1389
+          topY: 397
+          bottomY: 457
+          maxCount: 61
+          width: 12
+          height: 61
+          centerX: 1383.5
+        -
+          startX: 1403
+          endX: 1414
+          topY: 274
+          bottomY: 291
+          maxCount: 18
+          width: 12
+          height: 18
+          centerX: 1408.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as mixed.
+    post_filter:
+      status: kept
+      reasons:
+[]
+  -
+    candidate_id: dy-20260526-014
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3811261862243336615
+    product_name: "皮尔卡丹高端100%桑蚕丝短袖polo衫2026夏季新款中年男士翻领t恤"
+    raw_lines:
+      - "皮尔卡丹高端100%桑蚕丝短袖polo衫2026夏季新款中年男士翻领t恤"
+      - 流量扶持
+      - 运费险
+      - 现货
+      - 皮尔卡丹玉翊男装专卖店
+      - 92分
+      - ¥
+      - 298
+      - "40%"
+      - 赚¥119.2
+      - "100%"
+      - 421
+      - 195
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3811261862243336615&id=3811261862243336615&only_query_params=1"
+    shop_name: ""
+    shop_score: 92
+    good_rate: "100%"
+    creator_count: 421
+    commission_percent: 100
+    sales: 195
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-014-皮尔卡丹高端100-桑蚕丝短袖polo衫2026夏季新款中年男士翻领t恤-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-015
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3815358971158593608
+    product_name: 夏季2026新款圆领纯色重磅垂感固色短袖t恤潮流宽松百搭情侣上衣
+    raw_lines:
+      - 夏季2026新款圆领纯色重磅垂感固色短袖t恤潮流宽松百搭情侣上衣
+      - 运费险
+      - 现货
+      - 包邮
+      - 潮峰选品质服饰
+      - 88分
+      - ¥
+      - 39
+      - .9
+      - "20%"
+      - 赚¥7.9
+      - "-"
+      - 6
+      - 3
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3815358971158593608&id=3815358971158593608&only_query_params=1"
+    shop_name: ""
+    shop_score: 88
+    good_rate: "20%"
+    creator_count: 7.9
+    commission_percent: 20
+    sales: "-"
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-015-夏季2026新款圆领纯色重磅垂感固色短袖t恤潮流宽松百搭情侣上衣-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-016
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3816853106696782279
+    product_name: Under Armour/安德玛夏季休闲短袖透气吸汗T恤男士速干弹力短袖
+    raw_lines:
+      - Under Armour/安德玛夏季休闲短袖透气吸汗T恤男士速干弹力短袖
+      - 商家投千川
+      - 分期免息
+      - 运费险
+      - 尤阿运动鞋服专营店
+      - 94分
+      - ¥
+      - 99
+      - ¥
+      - 110
+      - 双佣金
+      - 10
+      - "%"
+      - "投放期8%"
+      - 最高赚¥9.9
+      - "100%"
+      - 179
+      - 354
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3816853106696782279&id=3816853106696782279&only_query_params=1"
+    shop_name: ""
+    shop_score: 94
+    good_rate: "100%"
+    creator_count: 179
+    commission_percent: 10
+    sales: 354
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-016-Under-Armour-安德玛夏季休闲短袖透气吸汗T恤男士速干弹力短袖-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - "佣金 10% < 15%"
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-017
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3816492928424083610
+    product_name: "夏季新款男士100%桑蚕丝凉感纯色薄款短袖翻领POLO衫商务休闲"
+    raw_lines:
+      - "夏季新款男士100%桑蚕丝凉感纯色薄款短袖翻领POLO衫商务休闲"
+      - 分期免息
+      - 运费险
+      - 现货
+      - 高端男装优选服饰
+      - 84分
+      - ¥
+      - 59
+      - .9
+      - ¥
+      - 169
+      - .9
+      - "28%"
+      - 赚¥16.7
+      - "100%"
+      - 94
+      - 195
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3816492928424083610&id=3816492928424083610&only_query_params=1"
+    shop_name: ""
+    shop_score: 84
+    good_rate: "100%"
+    creator_count: 94
+    commission_percent: 100
+    sales: 195
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-017-夏季新款男士100-桑蚕丝凉感纯色薄款短袖翻领POLO衫商务休闲-trend.jpg
+      reason: Not enough screenshot video bars.
+      chart:
+        x1: 898
+        x2: 1425
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据
+  -
+    candidate_id: dy-20260526-018
+    status: rejected
+    decision: reject
+    commodity_id: 3817823949736247461
+    product_name: 啄木鸟夏季新款纯色简约针织短袖T恤男士潮流休闲POLO衫百搭上衣
+    raw_lines:
+      - 啄木鸟夏季新款纯色简约针织短袖T恤男士潮流休闲POLO衫百搭上衣
+      - 券
+      - 100减40
+      - 运费险
+      - 现货
+      - 啄木鳥珞晨专卖店
+      - 85分
+      - ¥
+      - 69
+      - .9
+      - "20%"
+      - 赚¥13.9
+      - "100%"
+      - 101
+      - 272
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3817823949736247461&id=3817823949736247461&only_query_params=1"
+    shop_name: ""
+    shop_score: 85
+    good_rate: "100%"
+    creator_count: 101
+    commission_percent: 20
+    sales: 272
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: mixed
+      classification: mixed
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-018-啄木鸟夏季新款纯色简约针织短袖T恤男士潮流休闲POLO衫百搭上衣-trend.jpg
+      reason: 
+      latestHeights:
+        - 118
+        - 145
+        - 145
+      chart:
+        x1: 898
+        x2: 1419
+        y1: 158
+        y2: 487
+      greenGroups:
+        -
+          startX: 988
+          endX: 993
+          topY: 188
+          bottomY: 195
+          maxCount: 8
+          width: 6
+          height: 8
+          centerX: 990.5
+        -
+          startX: 1130
+          endX: 1141
+          topY: 340
+          bottomY: 457
+          maxCount: 118
+          width: 12
+          height: 118
+          centerX: 1135.5
+        -
+          startX: 1155
+          endX: 1166
+          topY: 400
+          bottomY: 457
+          maxCount: 58
+          width: 12
+          height: 58
+          centerX: 1160.5
+        -
+          startX: 1180
+          endX: 1191
+          topY: 252
+          bottomY: 457
+          maxCount: 206
+          width: 12
+          height: 206
+          centerX: 1185.5
+        -
+          startX: 1205
+          endX: 1216
+          topY: 429
+          bottomY: 457
+          maxCount: 29
+          width: 12
+          height: 29
+          centerX: 1210.5
+        -
+          startX: 1230
+          endX: 1241
+          topY: 400
+          bottomY: 457
+          maxCount: 58
+          width: 12
+          height: 58
+          centerX: 1235.5
+        -
+          startX: 1254
+          endX: 1265
+          topY: 400
+          bottomY: 457
+          maxCount: 58
+          width: 12
+          height: 58
+          centerX: 1259.5
+        -
+          startX: 1279
+          endX: 1290
+          topY: 429
+          bottomY: 457
+          maxCount: 29
+          width: 12
+          height: 29
+          centerX: 1284.5
+        -
+          startX: 1304
+          endX: 1315
+          topY: 372
+          bottomY: 457
+          maxCount: 86
+          width: 12
+          height: 86
+          centerX: 1309.5
+        -
+          startX: 1328
+          endX: 1340
+          topY: 340
+          bottomY: 457
+          maxCount: 118
+          width: 13
+          height: 118
+          centerX: 1334
+        -
+          startX: 1354
+          endX: 1365
+          topY: 313
+          bottomY: 457
+          maxCount: 145
+          width: 12
+          height: 145
+          centerX: 1359.5
+        -
+          startX: 1378
+          endX: 1389
+          topY: 313
+          bottomY: 457
+          maxCount: 145
+          width: 12
+          height: 145
+          centerX: 1383.5
+      source: screenshot_pixels
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as mixed.
+    post_filter:
+      status: kept
+      reasons:
+[]
+  -
+    candidate_id: dy-20260526-019
+    status: manual_review
+    decision: manual_review
+    commodity_id: 3762131134545264979
+    product_name: 夏季黑色翻领设计T恤衫男士短袖款商务优雅精品休闲经典 透气POLO
+    raw_lines:
+      - 夏季黑色翻领设计T恤衫男士短袖款商务优雅精品休闲经典 透气POLO
+      - 券
+      - 60减10
+      - 运费险
+      - 现货
+      - 棉线工艺
+      - 88分
+      - ¥
+      - 143
+      - "15%"
+      - 赚¥21.4
+      - "95.24%"
+      - 36
+      - 226
+      - 加选品车
+    product_url: "https://buyin.jinritemai.com/dashboard/merch-picking-library/merch-promoting?commodity_id=3762131134545264979&id=3762131134545264979&only_query_params=1"
+    shop_name: ""
+    shop_score: 88
+    good_rate: "95.24%"
+    creator_count: 36
+    commission_percent: 15
+    sales: 226
+    sales_tail:
+      window: 近30天
+      excluded_channels:
+        - 直播
+      primary_channel: 视频
+      latest_three_days: unknown
+      classification: unknown
+      screenshot: /Users/lyy/influencer_marketing/runs/screenshots/douyin-selection-20260526-brand-menswear-002/dy-20260526-019-夏季黑色翻领设计T恤衫男士短袖款商务优雅精品休闲经典-透气POLO-trend.jpg
+      reason: No screenshot chart area with video bars was found.
+      source: unknown
+      fallback_reason: No readable chart canvas.
+    risk_flags:
+      - Latest three 视频 bars classified as unknown.
+    post_filter:
+      status: removed
+      reasons:
+        - 无可读销量曲线数据

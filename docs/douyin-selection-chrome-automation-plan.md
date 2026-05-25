@@ -13,9 +13,9 @@ Automate these product-selection paths:
 2. Open candidate product detail pages.
 3. Read `带货数据 > 销量趋势` visually from screenshots.
 4. Ignore blue live-stream bars and judge the short-video trend.
-5. Add products to the selection cart only when the latest three non-live/video
-   bars are rising.
-6. Export a ranked shortlist that can enter the image/video creative pipeline.
+5. Export the full link list and a post-filtered link list.
+6. Add products to the selection cart only in full mode, when the latest three
+   non-live/video bars are rising.
 
 ## Browser Automation Boundaries
 
@@ -33,6 +33,16 @@ Pause for user action when:
 - CAPTCHA, SMS verification, QR confirmation, or security prompt appears
 - the page asks for payment, permission escalation, or risky account action
 - Douyin changes layout enough that selectors cannot be confidently matched
+
+Login-block recovery:
+
+1. If the Buyin page shows `用户未登陆，请重新登陆`, redirects to
+   `douyinec.com`, or loads as a blank Douyin e-commerce landing page, navigate
+   to `https://www.douyinec.com/`.
+2. Click the `达人`/`达人入驻` entry card.
+3. Click `登录`.
+4. Return to the original Buyin selection URL and continue after the user/session
+   is authenticated.
 
 Do not automate:
 
@@ -233,23 +243,37 @@ Chart handling:
 - Use green `视频` bars as the primary trend when the legend is
   `直播 / 视频 / 图文 / 橱窗`.
 - Yellow `图文` and orange `橱窗` are supporting signals only.
-- Classify latest three video bars as `rising`, `flat`, `declining`, or
+- Classify latest three video bars as `rising`, `flat`, `declining`, `mixed`, or
   `unknown`.
-- If the latest three video bars are rising, scroll back up and add the product
-  to the selection cart.
-- If the curve cannot be confidently read, mark `manual_review` and do not add
-  the product automatically.
+- In read-only discovery, do not add products to the selection cart; write the
+  captured fields and let post-filters remove low-quality links.
+- In full selection mode, if the latest three video bars are rising, scroll back
+  up and add the product to the selection cart.
+- If the curve cannot be confidently read, mark `manual_review` and remove it
+  from the post-filtered link file by default.
 
 ### Stage 5: Apply Filters and Score
 
-Hard reject:
+Browser-layer hard filters:
 
 ```text
 not apparel or wrong subcategory
 monthly sales > 500
 creator_count > 500
 not brand-tagged when `特色货品=品牌` is required
-latest three non-live/video bars are flat or declining
+```
+
+Post-automation link filters:
+
+```text
+commission < 15%
+no readable sales-curve data
+```
+
+Strict auto-add filters:
+
+```text
+latest three non-live/video bars are flat, mixed, or declining
 apparent rise comes only from blue live-stream bars
 ```
 
@@ -257,8 +281,8 @@ Manual review:
 
 ```text
 list filters pass
-trend screenshot is unclear
-channel colors or legend cannot be confidently mapped
+commission >= 15%
+trend screenshot is readable
 latest three video bars are mixed rather than clearly rising
 ```
 
@@ -269,6 +293,8 @@ category == 服饰内衣 > 服装 > 男装
 monthly sales <= 500
 creator_count <= 500
 featured good == 品牌
+commission >= 15%
+readable sales-curve data
 latest three non-live/video bars rising
 ```
 
@@ -296,6 +322,8 @@ Write the run YAML and a concise Markdown summary:
 ```text
 /Users/lyy/influencer_marketing/runs/douyin-selection-YYYYMMDD-001.yaml
 /Users/lyy/influencer_marketing/runs/douyin-selection-YYYYMMDD-001-summary.md
+/Users/lyy/influencer_marketing/runs/douyin-selection-YYYYMMDD-001-links.md
+/Users/lyy/influencer_marketing/runs/douyin-selection-YYYYMMDD-001-links-filtered.md
 ```
 
 Summary format:
@@ -329,7 +357,12 @@ Run it from the Codex Node REPL/Chrome plugin runtime:
 const runner = await import("/Users/lyy/influencer_marketing/scripts/douyin-selection-runner.mjs");
 await runner.runDouyinSelection({
   maxCandidates: 20,
-  allowAddToCart: false
+  allowAddToCart: false,
+  postFilters: {
+    minCommissionPercent: 15,
+    requireReadableCurve: true,
+    requireRisingTrend: false
+  }
 });
 ```
 
@@ -418,6 +451,10 @@ filters:
   monthly_sales_max: 500
   creator_count_max: 500
   featured_good: 品牌
+post_filters:
+  min_commission_percent: 15
+  require_readable_curve: true
+  require_rising_trend: false
 trend:
   window: 近30天
   excluded_channels: [直播]
