@@ -1,0 +1,17 @@
+benchmark_version: 1
+source: feishu_creative_review
+items:
+  - benchmark_id:
+    product_id:
+    product_name:
+    product_url:
+    failed_stage: image_review # image_review | video_review
+    rejected_asset_path:
+    feishu_review_doc:
+    reject_reason:
+    failure_tags: []
+    prompt_used:
+    corrected_instruction:
+    created_at:
+    reuse_in_next_review: true
+

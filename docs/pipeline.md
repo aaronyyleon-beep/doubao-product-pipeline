@@ -1,7 +1,7 @@
-# Product Image2 and Doubao Video Pipeline
+# Douyin Affiliate Selection, Image2, and Doubao Video Pipeline
 
-This pipeline now uses image2 for the still commercial image stage, then uses
-Doubao only for image-to-video.
+This pipeline connects Douyin affiliate product selection, Feishu review,
+image2 still-image generation, and Doubao image-to-video.
 
 ## Folder layout
 
@@ -10,7 +10,7 @@ the style name, and the second level is the pipeline folder with date and
 sequence number:
 
 ```text
-/Users/muqin/Desktop/doubao-product-pipeline/风格名/pipeline-YYYYMMDD-00N-中文批次名/
+/Users/lyy/Desktop/doubao-product-pipeline/风格名/pipeline-YYYYMMDD-00N-中文批次名/
   商品001/
     原商品图/
     生成图片/
@@ -29,13 +29,51 @@ sequence number:
 This project holds reusable workflow assets:
 
 ```text
-/Users/muqin/doubao/
+/Users/lyy/influencer_marketing/
   prompts/
   skills/
   batches/
+  templates/
   docs/
   风格参考/
 ```
+
+## Product Selection and Feishu Review Handoff
+
+Before starting product creatives, run the Douyin apparel hot-product selection
+workflow when the product source has not already been decided. The selection
+workflow lives at:
+
+```text
+/Users/lyy/influencer_marketing/docs/douyin-hot-product-selection.md
+/Users/lyy/influencer_marketing/skills/douyin-hot-product-selection-automation/
+/Users/lyy/influencer_marketing/templates/douyin-hot-product-candidates.yaml
+```
+
+Shortlisted products should provide:
+
+- product URL or product ID
+- clean product image source
+- score and decision reason
+- category/subcategory
+- risk flags, if any
+
+Filtered products must be exported to Feishu for human review before creative
+generation:
+
+```bash
+node scripts/export-douyin-review-to-feishu.mjs \
+  --input runs/<run_id>-links-filtered.md \
+  --as user
+```
+
+Only products marked `approve` in Feishu should enter the Image2 and Doubao
+creative pipeline.
+
+After Image2 or video generation, push the generated image/video assets back to
+Feishu for second review. Creative outputs rejected in the second review should
+be recorded in `templates/creative-review-benchmark.yaml` or the matching batch
+manifest, then reused as benchmark examples in the next review.
 
 ## Naming
 
@@ -62,7 +100,7 @@ Record each batch in `batches/<batch-id>.yaml`. The batch number (`001`,
 that run.
 
 When starting a new run, choose the style first. Then scan existing folders
-under `/Users/muqin/Desktop/doubao-product-pipeline/<风格名>/` and choose the
+under `/Users/lyy/Desktop/doubao-product-pipeline/<风格名>/` and choose the
 next three-digit pipeline number for that style. For example, if
 `木质板风/pipeline-20260521-001-经典Polo单品` already exists, the next wood-board
 run on May 21, 2026 should start with
@@ -171,6 +209,6 @@ Then update only the style layer of the prompt. Keep the product preservation la
 Existing batches are archived at:
 
 ```text
-/Users/muqin/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品
-/Users/muqin/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量
+/Users/lyy/Desktop/doubao-product-pipeline/木质板风/pipeline-20260521-001-经典Polo单品
+/Users/lyy/Desktop/doubao-product-pipeline/快闪风格/pipeline-20260521-002-三色Polo批量
 ```
